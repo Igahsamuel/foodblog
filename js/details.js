@@ -16,7 +16,7 @@ deleteBtn.addEventListener('click', async (e) => {
  const res = await fetch('http://localhost:3000/posts/' + id, {
      method: 'DELETE'
  })
- window.location.replace('index.html');
+ window.location.href='index.html';
 })
 
 window.addEventListener('DOMContentLoaded', () => renderDetails());
