@@ -15,7 +15,7 @@ const createPost = async (e) => {
         headers: { 'content-Type' : 'application/json'}
 
     });
-    window.location.replace('/index.html');
+    window.location.replace('index.html');
 
 }
 
