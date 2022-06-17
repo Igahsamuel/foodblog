@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Blogger</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+        <!-- nav bar section -->
+         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+            <div class="container-lg">
+                <a href="#intro" class="navbar-brand">
+                    <span class="fw-bold"><span class="text-warning">Food</span>Blogger</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <navbar links
+                <div class="collapse navbar-collapse justify-content-end align-center" id=main-nav>
+                    <ul class="navbar-nav fw-bold">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Banner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/index.html#about" class="nav-link">Our Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/create.html" class="nav-link">Create Post</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   <section class="my-5 py-5" id="about">
+       <div class="container">
+        <h2>Create a New Blog</h2>
+
+        <form>
+            <input type="text" name="title" required placeholder="Blog title">
+            <textarea name="body" required placeholder = "Blog body"></textarea>
+            <button class="btn btn-warning ">Create</button>
+        </form>
+        </div>
+        </section>
+    <script src="/js/create.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
