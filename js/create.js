@@ -4,17 +4,20 @@ const form = document.querySelector('form');
 const createPost = async (e) => {
     e.preventDefault();
 
-    const doc = {
-        title: form.title.value,
-        body: form.body.value,
-        likes:0
-    }
-    await fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
-        body: JSON.stringify(doc),
-        headers: { 'content-Type' : 'application/json'}
-
-    });
+        body: JSON.stringify({
+          title: 'foo',
+          body: 'bar',
+          userId: 1,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+        
     window.location.href='index.html';
 
 }
