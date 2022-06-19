@@ -17,11 +17,8 @@ deleteBtn.addEventListener('click', async (e) => {
  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
      method: 'DELETE'
 
-})
- .then((response) => response.json())
- .then((data) => {
-    
- })
+});
+ 
  window.location.href='index.html';
 })
 

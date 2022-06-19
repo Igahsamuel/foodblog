@@ -16,7 +16,15 @@ const createPost = async (e) => {
         },
       })
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then(data => {
+          const dataArr = [];
+          console.log(data)
+          dataArr.unshift(data);
+          console.log(dataArr)
+          dataArr.push(data);
+          dataArr = dataArr.filter(post => post.id !== id);
+          createPost(dataArr);
+      })
         
     window.location.href='index.html';
 
