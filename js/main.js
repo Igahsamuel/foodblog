@@ -12,7 +12,7 @@ const renderPosts = async (term) => {
 
     const res = await fetch(url);
     const posts = await res.json();
-    
+
     let template = '';
     posts.forEach(post => {
         template += `
