@@ -29,7 +29,8 @@ const renderPosts = async (term) => {
 
     container.innerHTML = template;
 }   
-
+function updatePost(id){
+  console.log(id)
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'PUT',
   body: JSON.stringify({
@@ -42,9 +43,33 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+.then((response) => response.json())
+.then((data) => {
 
+    console.log(data)
+    let postTitles = document.querySelectorAll('.post-title') // 100 post titles [0 -99]
+    let postBodies = document.querySelectorAll('.post-body')
+    console.log(postTitles)
+    postTitles.forEach((postTitle, index) => {
+        if (index + 1 === id) {
+            if (data.title !== "") {
+                postTitle.innerHTML = data.title
+            }
+        }
+
+    })
+
+    postBodies.forEach((postBody, index) => {
+        if (index + 1 === id) {
+            if (data.body !== "") {
+                postBody.innerHTML = data.body
+            }
+        }
+
+    })
+
+});
+}
 searchForm.addEventListener ('submit', (e) => {
     e.preventDefault();
     renderPosts(searchForm.term.value.trim());
