@@ -15,7 +15,7 @@ const createPost = async (e) => {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-        .then((response) => response.json())
+        .then(res => res.json())
         .then(data => {
           const dataArr = [];
           console.log(data)
@@ -23,11 +23,16 @@ const createPost = async (e) => {
           console.log(dataArr)
           dataArr.push(data);
           dataArr = dataArr.filter(post => post.id !== id);
+        })
+        .catch(error => {
+          console.log(error)
           createPost(dataArr);
-      })
+        })
+        
         
     window.location.href='index.html';
 
 }
+
 
 form.addEventListener('submit', createPost);
