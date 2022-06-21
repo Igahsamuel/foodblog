@@ -75,6 +75,16 @@ textarea{
         border-radius: 10px;
         margin: 20px 0;
 }
+.enough {
+    position: absolute;
+    top: 44%;
+    left: 73%;
+    right: 0;
+    bottom: 0px;
+}
+.breaking{
+    padding: 20px 0;
+}
 
  /* responsive screen */
  @media screen and (max-width:768px){
@@ -86,6 +96,9 @@ textarea{
         top: 21%;
         left: 50%;
         transform: translate(-50%, 50%);
+    }
+    .breaking{
+        padding:0;
     }
  }
 
@@ -104,5 +117,16 @@ textarea{
      input{
             width: 140px;
      }
-
+     .enough{
+        position: unset;
+     }
+     .breaking{
+        border:none;
+     }
+     .living-well{
+        margin-top: 31%;
+     }
+     i {
+        font-size: 11px;
+     }
  }
