@@ -1,20 +1,21 @@
-let postWrapper = document.querySelector('#post-holder');
-let postForm = document.querySelector('#post-form')
-let title = document.querySelector('#title')
-let body = document.querySelector('#body')
+let container = document.querySelector('#post-holder');
+let postForm = document.querySelector('#post-form');
+let title = document.querySelector('#title');
+let body = document.querySelector('#body');
+const searchForm = document.querySelector('.search');
 
 
 
-let postBox = [];
+let dataArr = [];
 
 function getPosts() {
     fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
         .then((data) => {
-            console.log(postBox)
+            console.log(dataArr)
             //    console.log(data)
-            postBox = data
-            renderUI(postBox)
+            dataArr = data
+            renderDetails(dataArr)
         })
 
 
@@ -42,10 +43,10 @@ function createPost(e) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            postBox.unshift(data);
-            console.log(postBox)
+            dataArr.unshift(data);
+            console.log(dataArr)
             let postHolder = '';
-            postBox.forEach(post => {
+            dataArr.forEach(post => {
                 postHolder += `
                 <div class="col-md-6  col-lg-4 mb-3">
                     <div class="card h-100">
@@ -64,7 +65,7 @@ function createPost(e) {
                 </div>
             `
             });
-            postWrapper.innerHTML = postHolder;
+            container.innerHTML = postHolder;
         })
 }
 
@@ -130,15 +131,19 @@ function deletePost(id) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            postBox = postBox.filter(post => post.id !== id)
-            console.log(postBox)
+            dataArr = dataArr.filter(post => post.id !== id)
+            console.log(dataArr)
             // use a function to display the UI
-            renderUI(postBox)  
+            renderDetails(dataArr)  
         })
 
 }
 
-function renderUI (arr) {
+function renderDetails (arr) {
+    let url = 'https://jsonplaceholder.typicode.com/posts';
+    if (arr) {
+        url += '&q=${arr}';
+    }
     let postHolder = '';
             arr.forEach(post => {
                 postHolder += `
@@ -159,10 +164,14 @@ function renderUI (arr) {
                     </div>
                 `
             });
-            postWrapper.innerHTML = postHolder;
+            container.innerHTML = postHolder;
 
 }
 
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    renderDetails(searchForm.arr.value.trim())
+})
 
 
 
